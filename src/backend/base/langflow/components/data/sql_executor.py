@@ -29,6 +29,10 @@ class SQLExecutorComponent(CustomComponent):
                 "display_name": "Add Error",
                 "info": "Add the error to the result.",
             },
+            "lazy_table_reflection": {
+                "display_name": "Lazy Table Reflection",
+                "info": "Disable automatic schema reflection (recommended for buggy schemas).",
+            }
         }
 
     def clean_up_uri(self, uri: str) -> str:
@@ -44,12 +48,15 @@ class SQLExecutorComponent(CustomComponent):
         include_columns: bool = False,
         passthrough: bool = False,
         add_error: bool = False,
-        **kwargs,
+        lazy_table_reflection=None, **kwargs,
     ) -> Text:
         _ = kwargs
         error = None
         try:
-            database = SQLDatabase.from_uri(database_url)
+            database = SQLDatabase.from_uri(
+                database_url,
+                lazy_table_reflection=lazy_table_reflection
+            )
         except Exception as e:
             msg = f"An error occurred while connecting to the database: {e}"
             raise ValueError(msg) from e
