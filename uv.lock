@@ -4581,11 +4581,13 @@ dependencies = [
     { name = "opensearch-py" },
     { name = "opik" },
     { name = "pgvector" },
+    { name = "psycopg2-binary" },
     { name = "pyarrow" },
     { name = "pydantic-ai" },
     { name = "pydantic-settings" },
     { name = "pylint" },
     { name = "pymongo" },
+    { name = "pymysql" },
     { name = "pytube" },
     { name = "pywin32", marker = "sys_platform == 'win32'" },
     { name = "qdrant-client" },
@@ -4631,16 +4633,11 @@ local = [
     { name = "llama-cpp-python" },
     { name = "sentence-transformers" },
 ]
-mysql = [
-    { name = "pymysql" },
-    { name = "sqlalchemy" },
-]
 nv-ingest = [
     { name = "nv-ingest-api" },
     { name = "nv-ingest-client" },
 ]
 postgresql = [
-    { name = "psycopg2-binary" },
     { name = "sqlalchemy", extra = ["postgresql-psycopg", "postgresql-psycopg2binary"] },
 ]
 
@@ -4778,13 +4775,13 @@ requires-dist = [
     { name = "opensearch-py", specifier = "==2.8.0" },
     { name = "opik", specifier = ">=1.6.3" },
     { name = "pgvector", specifier = "==0.3.6" },
-    { name = "psycopg2-binary", marker = "extra == 'postgresql'" },
+    { name = "psycopg2-binary", specifier = ">=2.9.10" },
     { name = "pyarrow", specifier = "==19.0.0" },
     { name = "pydantic-ai", specifier = ">=0.0.19" },
     { name = "pydantic-settings", specifier = ">=2.2.0,<3.0.0" },
     { name = "pylint", specifier = ">=3.3.4" },
     { name = "pymongo", specifier = "==4.10.1" },
-    { name = "pymysql", marker = "extra == 'mysql'" },
+    { name = "pymysql", specifier = ">=1.1.1" },
     { name = "pytube", specifier = "==15.0.0" },
     { name = "pywin32", marker = "sys_platform == 'win32'", specifier = "==307" },
     { name = "qdrant-client", specifier = "==1.9.2" },
@@ -4797,7 +4794,6 @@ requires-dist = [
     { name = "sentence-transformers", marker = "extra == 'local'", specifier = ">=2.3.1" },
     { name = "smolagents", specifier = ">=1.8.0" },
     { name = "spider-client", specifier = "==0.1.24" },
-    { name = "sqlalchemy", marker = "extra == 'mysql'" },
     { name = "sqlalchemy", extras = ["aiosqlite"], specifier = ">=2.0.38,<3.0.0" },
     { name = "sqlalchemy", extras = ["postgresql-psycopg"], marker = "extra == 'postgresql'" },
     { name = "sqlalchemy", extras = ["postgresql-psycopg2binary"], marker = "extra == 'postgresql'" },
@@ -4814,7 +4810,7 @@ requires-dist = [
     { name = "youtube-transcript-api", specifier = "==0.6.3" },
     { name = "zep-python", specifier = "==2.0.2" },
 ]
-provides-extras = ["deploy", "couchbase", "cassio", "local", "clickhouse-connect", "nv-ingest", "postgresql", "mysql"]
+provides-extras = ["deploy", "couchbase", "cassio", "local", "clickhouse-connect", "nv-ingest", "postgresql"]
 
 [package.metadata.requires-dev]
 dev = [

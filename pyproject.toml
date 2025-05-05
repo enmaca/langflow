@@ -123,6 +123,8 @@ dependencies = [
     "langchain-ibm>=0.3.8",
     "opik>=1.6.3",
     "openai>=1.68.2",
+    "pymysql>=1.1.1",
+    "psycopg2-binary>=2.9.10"
 ]
 
 [dependency-groups]
@@ -215,12 +217,6 @@ nv-ingest = [
 postgresql = [
     "sqlalchemy[postgresql_psycopg2binary]",
     "sqlalchemy[postgresql_psycopg]",
-    "psycopg2-binary",
-]
-
-mysql = [
-    "sqlalchemy",
-    "pymysql",
 ]
 
 [project.scripts]
