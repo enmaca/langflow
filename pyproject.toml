@@ -126,6 +126,7 @@ dependencies = [
     "pymysql>=1.1.1",
     "psycopg2-binary>=2.9.10",
     "sshtunnel>=0.4.0",
+    "redshift_connector<=2.1.5"
 ]
 
 [dependency-groups]
