@@ -4601,6 +4601,7 @@ dependencies = [
     { name = "spider-client" },
     { name = "sqlalchemy", extra = ["aiosqlite"] },
     { name = "sseclient-py" },
+    { name = "sshtunnel" },
     { name = "supabase" },
     { name = "types-cachetools" },
     { name = "upstash-vector" },
@@ -4798,6 +4799,7 @@ requires-dist = [
     { name = "sqlalchemy", extras = ["postgresql-psycopg"], marker = "extra == 'postgresql'" },
     { name = "sqlalchemy", extras = ["postgresql-psycopg2binary"], marker = "extra == 'postgresql'" },
     { name = "sseclient-py", specifier = "==1.8.0" },
+    { name = "sshtunnel", specifier = ">=0.4.0" },
     { name = "supabase", specifier = "==2.6.0" },
     { name = "types-cachetools", specifier = "==5.5.0.20240820" },
     { name = "upstash-vector", specifier = "==0.6.0" },
@@ -9541,6 +9543,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/e8/ed/3df5ab8bb0c12f86c28d0cadb11ed1de44a92ed35ce7ff4fd5518a809325/sseclient-py-1.8.0.tar.gz", hash = "sha256:c547c5c1a7633230a38dc599a21a2dc638f9b5c297286b48b46b935c71fac3e8", size = 7791 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/49/58/97655efdfeb5b4eeab85b1fc5d3fa1023661246c2ab2a26ea8e47402d4f2/sseclient_py-1.8.0-py2.py3-none-any.whl", hash = "sha256:4ecca6dc0b9f963f8384e9d7fd529bf93dd7d708144c4fb5da0e0a1a926fee83", size = 8828 },
+]
+
+[[package]]
+name = "sshtunnel"
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "paramiko" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8d/ad/4c587adf79865be268ee0b6bd52cfaa7a75d827a23ced072dc5ab554b4af/sshtunnel-0.4.0.tar.gz", hash = "sha256:e7cb0ea774db81bf91844db22de72a40aae8f7b0f9bb9ba0f666d474ef6bf9fc", size = 62716 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/58/13/8476c4328dcadfe26f8bd7f3a1a03bf9ddb890a7e7b692f54a179bc525bf/sshtunnel-0.4.0-py2.py3-none-any.whl", hash = "sha256:98e54c26f726ab8bd42b47a3a21fca5c3e60f58956f0f70de2fb8ab0046d0606", size = 24729 },
 ]
 
 [[package]]

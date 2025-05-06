@@ -124,7 +124,8 @@ dependencies = [
     "opik>=1.6.3",
     "openai>=1.68.2",
     "pymysql>=1.1.1",
-    "psycopg2-binary>=2.9.10"
+    "psycopg2-binary>=2.9.10",
+    "sshtunnel>=0.4.0",
 ]
 
 [dependency-groups]
