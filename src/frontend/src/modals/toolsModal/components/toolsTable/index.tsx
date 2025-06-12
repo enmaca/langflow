@@ -80,18 +80,31 @@ export default function ToolsTable({
     if (!open && selectedRows) {
       handleOnNewValue({
         value: data.map((row) => {
+          const name = parseString(row.name, [
+            "snake_case",
+            "no_blank",
+            "lowercase",
+          ]);
+          const display_name = parseString(row.display_name, [
+            "snake_case",
+            "no_blank",
+            "lowercase",
+          ]);
           const processedValue = (
-            row.name !== ""
-              ? parseString(row.name, ["snake_case", "no_blank", "lowercase"])
-              : parseString(row.display_name, [
-                  "snake_case",
-                  "no_blank",
-                  "lowercase",
-                ])
+            name !== "" && name !== display_name
+              ? name
+              : isAction
+                ? ""
+                : display_name
           ).slice(0, 46);
 
           const processedDescription =
-            row.description !== "" ? row.description : row.display_description;
+            row.description !== "" &&
+            row.description !== row.display_description
+              ? row.description
+              : isAction
+                ? ""
+                : row.display_description;
 
           return selectedRows?.some(
             (selected) =>
@@ -147,27 +160,27 @@ export default function ToolsTable({
       cellClass: "text-muted-foreground",
     },
     {
-      field: isAction ? "name" : "tags",
+      field: "name",
       headerName: isAction ? "Action" : "Slug",
       flex: 1,
       resizable: false,
       valueGetter: (params) =>
-        isAction
-          ? params.data.name !== ""
-            ? parseString(params.data.name, [
-                "snake_case",
-                "no_blank",
-                "uppercase",
-              ])
-            : parseString(params.data.display_name, [
-                "snake_case",
-                "no_blank",
-                "uppercase",
-              ])
-          : parseString(params.data.tags.join(", "), [
+        params.data.name !== ""
+          ? parseString(params.data.name, [
               "snake_case",
+              "no_blank",
               "uppercase",
-            ]),
+            ])
+          : isAction
+            ? parseString(params.data.display_name, [
+                "snake_case",
+                "no_blank",
+                "uppercase",
+              ])
+            : parseString(params.data.tags.join(", "), [
+                "snake_case",
+                "uppercase",
+              ]),
       cellClass: "text-muted-foreground",
     },
     {
@@ -281,7 +294,7 @@ export default function ToolsTable({
       >
         <SidebarHeader className="flex-none px-4 py-4">
           {focusedRow &&
-            (isAction ? (
+            (isAction || !focusedRow.readonly ? (
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
                   <label

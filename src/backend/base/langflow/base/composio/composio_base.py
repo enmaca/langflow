@@ -8,8 +8,8 @@ from composio.exceptions import ApiKeyError
 from composio_langchain import ComposioToolSet
 from langchain_core.tools import Tool
 
-from langflow.custom import Component
-from langflow.inputs import (
+from langflow.custom.custom_component.component import Component
+from langflow.inputs.inputs import (
     AuthInput,
     MessageTextInput,
     SecretStrInput,
@@ -186,7 +186,7 @@ class ComposioBaseComponent(Component):
         build_config["action"]["options"] = [
             {
                 "name": self.sanitize_action_name(action),
-                "metaData": action,
+                "metadata": action,
             }
             for action in self._actions_data
         ]
@@ -282,10 +282,12 @@ class ComposioBaseComponent(Component):
         configured_tools = []
         for tool in tools:
             # Set the sanitized name
-            display_name = self._sanitized_names.get(tool.name, self._name_sanitizer.sub("-", tool.name))
+            display_name = self._actions_data.get(tool.name, {}).get(
+                "display_name", self._sanitized_names.get(tool.name, self._name_sanitizer.sub("-", tool.name))
+            )
             # Set the tags
             tool.tags = [tool.name]
-            tool.metadata = {"display_name": display_name, "display_description": tool.description}
+            tool.metadata = {"display_name": display_name, "display_description": tool.description, "readonly": True}
             configured_tools.append(tool)
         return configured_tools
 
