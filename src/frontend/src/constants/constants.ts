@@ -660,6 +660,7 @@ export const LANGFLOW_SUPPORTED_TYPES = new Set([
   "connect",
   "auth",
   "query",
+  "mcp",
   "tools",
 ]);
 
@@ -1024,7 +1025,7 @@ export const POLLING_MESSAGES = {
   STREAMING_NOT_SUPPORTED: "Streaming not supported",
 } as const;
 
-export const POLLING_INTERVAL = 100;
+export const BUILD_POLLING_INTERVAL = 25;
 
 export const IS_AUTO_LOGIN =
   !process?.env?.LANGFLOW_AUTO_LOGIN ||

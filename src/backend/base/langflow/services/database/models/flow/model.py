@@ -20,11 +20,11 @@ from sqlalchemy import Enum as SQLEnum
 from sqlalchemy import Text, UniqueConstraint, text
 from sqlmodel import JSON, Column, Field, Relationship, SQLModel
 
-from langflow.schema import Data
+from langflow.schema.data import Data
 
 if TYPE_CHECKING:
-    from langflow.services.database.models.folder import Folder
-    from langflow.services.database.models.user import User
+    from langflow.services.database.models.folder.model import Folder
+    from langflow.services.database.models.user.model import User
 
 HEX_COLOR_LENGTH = 7
 
@@ -35,6 +35,9 @@ class AccessTypeEnum(str, Enum):
 
 
 class FlowBase(SQLModel):
+    # Supresses warnings during migrations
+    __mapper_args__ = {"confirm_deleted_rows": False}
+
     name: str = Field(index=True)
     description: str | None = Field(default=None, sa_column=Column(Text, index=True, nullable=True))
     icon: str | None = Field(default=None, nullable=True)

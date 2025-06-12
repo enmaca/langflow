@@ -42,6 +42,8 @@ export const lazyIconsMapping = {
     import("@/icons/Cassandra").then((mod) => ({ default: mod.CassandraIcon })),
   Chroma: () =>
     import("@/icons/ChromaIcon").then((mod) => ({ default: mod.ChromaIcon })),
+  Cleanlab: () =>
+    import("@/icons/Cleanlab").then((mod) => ({ default: mod.CleanlabIcon })),
   Clickhouse: () =>
     import("@/icons/Clickhouse").then((mod) => ({
       default: mod.ClickhouseIcon,
@@ -60,8 +62,12 @@ export const lazyIconsMapping = {
     })),
   Couchbase: () =>
     import("@/icons/Couchbase").then((mod) => ({ default: mod.CouchbaseIcon })),
+  Claude: () =>
+    import("@/icons/Claude").then((mod) => ({ default: mod.ClaudeIcon })),
   CrewAI: () =>
     import("@/icons/CrewAI").then((mod) => ({ default: mod.CrewAiIcon })),
+  Cursor: () =>
+    import("@/icons/Cursor").then((mod) => ({ default: mod.CursorIcon })),
   DeepSeek: () =>
     import("@/icons/DeepSeek").then((mod) => ({ default: mod.DeepSeekIcon })),
   Dropbox: () =>
@@ -105,6 +111,8 @@ export const lazyIconsMapping = {
     })),
   Gmail: () =>
     import("@/icons/gmail").then((mod) => ({ default: mod.GmailIcon })),
+  Outlook: () =>
+    import("@/icons/outlook").then((mod) => ({ default: mod.OutlookIcon })),
   Googlecalendar: () =>
     import("@/icons/googlecalendar").then((mod) => ({
       default: mod.GooglecalendarIcon,
@@ -257,6 +265,10 @@ export const lazyIconsMapping = {
   ThumbUpCustom: () =>
     import("@/icons/thumbs").then((mod) => ({
       default: mod.ThumbUpIconCustom,
+    })),
+  TwelveLabs: () =>
+    import("@/icons/TwelveLabs").then((mod) => ({
+      default: mod.TwelveLabsIcon,
     })),
   TwitterX: () =>
     import("@/icons/Twitter X").then((mod) => ({
