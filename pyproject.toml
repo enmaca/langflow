@@ -126,6 +126,10 @@ dependencies = [
     "cleanlab-tlm>=1.1.2",
     'gassist>=0.0.1; sys_platform == "win32"',
     "twelvelabs>=0.4.7",
+    "pymysql>=1.1.1",
+    "psycopg2-binary>=2.9.10",
+    "sshtunnel>=0.4.0",
+    "redshift_connector<=2.1.5"
 ]
 
 [dependency-groups]
@@ -212,9 +216,8 @@ nv-ingest = [
 ]
 
 postgresql = [
-  "sqlalchemy[postgresql_psycopg2binary]",
-    "sqlalchemy[postgresql_psycopg]",
-
+    "sqlalchemy[postgresql_psycopg2binary]",
+    "sqlalchemy[postgresql_psycopg]"
 ]
 
 [project.scripts]

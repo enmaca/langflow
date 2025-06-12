@@ -60,6 +60,8 @@ COPY ./README.md /app/README.md
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-editable --extra postgresql
 
+RUN --mount=type=cache,target=/root/.cache/uv
+
 ################################
 # RUNTIME
 # Setup user, utilities and copy the virtual environment only
