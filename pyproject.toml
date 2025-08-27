@@ -129,6 +129,10 @@ dependencies = [
     "aiosqlite==0.21.0",
     "fastparquet>=2024.11.0",
     "traceloop-sdk>=0.43.1",
+    "pymysql>=1.1.1",
+    "psycopg2-binary>=2.9.10",
+    "sshtunnel>=0.4.0",
+    "redshift_connector<=2.1.5"
 ]
 
 [dependency-groups]
